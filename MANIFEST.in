@@ -1,1 +1,1 @@
-include afpapi/rets.csv
+include afpapi/*.csv
