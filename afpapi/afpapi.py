@@ -57,8 +57,13 @@ class AFP:
         self.prices = prices
 
     def calculate_mean_variance_returns(self, risk_aversion=1):
-        start_index = self.rets.index.get_loc(self.start_date)[0]
-        end_index = self.rets.index.get_loc(self.end_date)[0]
+        start_index = self.rets.index.get_loc(self.start_date)
+        if isinstance(start_index, np.ndarray):
+            start_index = start_index[0]
+        end_index = self.rets.index.get_loc(self.end_date)
+        if isinstance(end_index, np.ndarray):
+            end_index = end_index[0]
+
         rolling = self.rolling
         rets = self.rets
         returns = []
@@ -84,8 +89,12 @@ class AFP:
         self.mv_rets_df = mv_rets_df
 
     def calculate_equal_weight_returns(self):
-        start_index = self.rets.index.get_loc(self.start_date)[0]
-        end_index = self.rets.index.get_loc(self.end_date)[0]
+        start_index = self.rets.index.get_loc(self.start_date)
+        if isinstance(start_index, np.ndarray):
+            start_index = start_index[0]
+        end_index = self.rets.index.get_loc(self.end_date)
+        if isinstance(end_index, np.ndarray):
+            end_index = end_index[0]
         rets = self.rets
         returns = []
         n_assets = len(rets.columns)

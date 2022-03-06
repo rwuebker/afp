@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="afpapi",
-    version="0.1.0",
+    version="0.1.2",
     url="https://github.com/rwuebker/afpapi",
     author="Rick Wuebker",
     author_email="richard_wuebker@berkeley.edu",
